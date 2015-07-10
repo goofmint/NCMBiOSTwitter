@@ -15,14 +15,47 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
-        
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
+    /// 公式のTwitterログイン（使用しません）
+    func standardTwitterLogin() {
+        let logInButton = TWTRLogInButton(logInCompletion: {
+            (session: TWTRSession!, error: NSError!) in
+            // play with Twitter session
+        })
+        logInButton.center = self.view.center
+        self.view.addSubview(logInButton)
+    }
+    
+    // ------------------------------------------------------------------------
+    // MARK: - Actions
+    // ------------------------------------------------------------------------
+    
+    @IBAction func tappedLoginButton(sender: AnyObject) {
         NCMBTwitterUtils.logInWithBlock { (user: NCMBUser!, error: NSError!) -> Void in
             if let u = user {
                 if u.isNew {
                     println("Twitterで登録成功")
+                    println("会員登録後の処理")
+                    // ACLを本人のみに設定
+                    let acl = NCMBACL(user: NCMBUser.currentUser())
+                    user.ACL = acl
+                    user.saveInBackgroundWithBlock({ (error: NSError!) -> Void in
+                        if error == nil {
+                            println("ACLの保存成功")
+                        } else {
+                            println("ACL設定の保存失敗: \(error)")
+                        }
+                        self.performSegueWithIdentifier("unwindFromLogin", sender: self)
+                    })
                 } else {
                     println("Twitterでログイン成功: \(u)")
+                    self.performSegueWithIdentifier("unwindFromLogin", sender: self)
                 }
             } else {
                 println("Error: \(error)")
@@ -32,33 +65,6 @@ class LoginViewController: UIViewController {
                     println("エラー: \(error)")
                 }
             }
-            
         }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
-    func twitterLogin() {
-        let logInButton = TWTRLogInButton(logInCompletion: {
-            (session: TWTRSession!, error: NSError!) in
-            // play with Twitter session
-        })
-        logInButton.center = self.view.center
-        self.view.addSubview(logInButton)
-    }
-
 }

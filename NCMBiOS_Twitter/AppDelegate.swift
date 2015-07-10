@@ -15,12 +15,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        Fabric.with([Twitter()])
+//        Fabric.with([Twitter()]) // 使用しません
 
-        NCMBTwitterUtils.initializeWithConsumerKey("fCghM0zh37224iEj5qobJFGga", consumerSecret: "dZqV0vk6KC2vDKetY6ev9oi0fgbiUqLcl7F26K9U1jwc0mj2l8")
+        // NCMBのセットアップ
+        Todo.registerSubclass()
+        NCMB.setApplicationKey(kNCMBiOSApplicationKey, clientKey: kNCMBiOSClientKey)
+        NCMBTwitterUtils.initializeWithConsumerKey(kTwitterConsumerKey, consumerSecret: kTwitterConsumerSecret)
 
         return true
     }
@@ -46,7 +48,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
 }
-

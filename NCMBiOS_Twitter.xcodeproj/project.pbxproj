@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		12205C5B1B4FD11B0083541F /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12205C5A1B4FD11B0083541F /* Settings.swift */; };
+		12205C5D1B4FD2890083541F /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12205C5C1B4FD2890083541F /* Todo.swift */; };
 		125204D81B4D645700678A6E /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 125204D41B4D645700678A6E /* Fabric.framework */; };
 		125204D91B4D645700678A6E /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 125204D51B4D645700678A6E /* TwitterKit.framework */; };
 		125204DA1B4D645700678A6E /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 125204D61B4D645700678A6E /* TwitterKitResources.bundle */; };
@@ -34,6 +36,8 @@
 
 /* Begin PBXFileReference section */
 		0347B0D611D16608BF0622C7 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		12205C5A1B4FD11B0083541F /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		12205C5C1B4FD2890083541F /* Todo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 		125204D41B4D645700678A6E /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		125204D51B4D645700678A6E /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = "<group>"; };
 		125204D61B4D645700678A6E /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TwitterKitResources.bundle; path = TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle; sourceTree = "<group>"; };
@@ -100,10 +104,12 @@
 		129028B91B47C0790038D99B /* NCMBiOS_Twitter */ = {
 			isa = PBXGroup;
 			children = (
+				12205C5A1B4FD11B0083541F /* Settings.swift */,
 				129028BC1B47C0790038D99B /* AppDelegate.swift */,
 				129028BE1B47C0790038D99B /* MasterViewController.swift */,
 				129028C01B47C0790038D99B /* DetailViewController.swift */,
 				125204DC1B4D649D00678A6E /* LoginViewController.swift */,
+				12205C5C1B4FD2890083541F /* Todo.swift */,
 				129028C21B47C0790038D99B /* Main.storyboard */,
 				129028C51B47C0790038D99B /* Images.xcassets */,
 				129028C71B47C0790038D99B /* LaunchScreen.xib */,
@@ -310,9 +316,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				125204DD1B4D649E00678A6E /* LoginViewController.swift in Sources */,
+				12205C5D1B4FD2890083541F /* Todo.swift in Sources */,
 				129028C11B47C0790038D99B /* DetailViewController.swift in Sources */,
 				129028BF1B47C0790038D99B /* MasterViewController.swift in Sources */,
 				129028BD1B47C0790038D99B /* AppDelegate.swift in Sources */,
+				12205C5B1B4FD11B0083541F /* Settings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
